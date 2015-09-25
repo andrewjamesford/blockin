@@ -13,7 +13,35 @@
 		4924E3C91BB5632400AA63F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3C71BB5632400AA63F6 /* Main.storyboard */; };
 		4924E3CB1BB5632600AA63F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3CA1BB5632600AA63F6 /* Assets.xcassets */; };
 		4924E3CE1BB5632700AA63F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3CC1BB5632700AA63F6 /* LaunchScreen.storyboard */; };
+		4924E3DC1BB5641400AA63F6 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3DB1BB5641400AA63F6 /* blockerList.json */; };
+		4924E3DE1BB5641600AA63F6 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */; };
+		4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3E71BB5697F00AA63F6 /* BlockList.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4924E3E01BB5641700AA63F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4924E3B61BB5632100AA63F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4924E3D81BB5641300AA63F6;
+			remoteInfo = ContentBlocker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4924E3E61BB5641700AA63F6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4924E3BE1BB5632200AA63F6 /* BlockIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +52,22 @@
 		4924E3CA1BB5632600AA63F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4924E3CD1BB5632700AA63F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4924E3CF1BB5632800AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4924E3DB1BB5641400AA63F6 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		4924E3DF1BB5641700AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4924E3E71BB5697F00AA63F6 /* BlockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4924E3BB1BB5632100AA63F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4924E3D61BB5641300AA63F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				4924E3C01BB5632200AA63F6 /* BlockIn */,
+				4924E3DA1BB5641300AA63F6 /* ContentBlocker */,
 				4924E3BF1BB5632200AA63F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4924E3BE1BB5632200AA63F6 /* BlockIn.app */,
+				4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,12 +101,23 @@
 				4924E3C11BB5632200AA63F6 /* AppDelegate.swift */,
 				4924E3C31BB5632300AA63F6 /* FirstViewController.swift */,
 				4924E3C51BB5632300AA63F6 /* SecondViewController.swift */,
+				4924E3E71BB5697F00AA63F6 /* BlockList.swift */,
 				4924E3C71BB5632400AA63F6 /* Main.storyboard */,
 				4924E3CA1BB5632600AA63F6 /* Assets.xcassets */,
 				4924E3CC1BB5632700AA63F6 /* LaunchScreen.storyboard */,
 				4924E3CF1BB5632800AA63F6 /* Info.plist */,
 			);
 			path = BlockIn;
+			sourceTree = "<group>";
+		};
+		4924E3DA1BB5641300AA63F6 /* ContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				4924E3DB1BB5641400AA63F6 /* blockerList.json */,
+				4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */,
+				4924E3DF1BB5641700AA63F6 /* Info.plist */,
+			);
+			path = ContentBlocker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,15 +130,34 @@
 				4924E3BA1BB5632100AA63F6 /* Sources */,
 				4924E3BB1BB5632100AA63F6 /* Frameworks */,
 				4924E3BC1BB5632100AA63F6 /* Resources */,
+				4924E3E61BB5641700AA63F6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4924E3E11BB5641700AA63F6 /* PBXTargetDependency */,
 			);
 			name = BlockIn;
 			productName = BlockIn;
 			productReference = 4924E3BE1BB5632200AA63F6 /* BlockIn.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4924E3D81BB5641300AA63F6 /* ContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4924E3E31BB5641700AA63F6 /* Build configuration list for PBXNativeTarget "ContentBlocker" */;
+			buildPhases = (
+				4924E3D51BB5641300AA63F6 /* Sources */,
+				4924E3D61BB5641300AA63F6 /* Frameworks */,
+				4924E3D71BB5641300AA63F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContentBlocker;
+			productName = ContentBlocker;
+			productReference = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -97,6 +169,9 @@
 				ORGANIZATIONNAME = "Andrew Ford";
 				TargetAttributes = {
 					4924E3BD1BB5632100AA63F6 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					4924E3D81BB5641300AA63F6 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -115,6 +190,7 @@
 			projectRoot = "";
 			targets = (
 				4924E3BD1BB5632100AA63F6 /* BlockIn */,
+				4924E3D81BB5641300AA63F6 /* ContentBlocker */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +206,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4924E3D71BB5641300AA63F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4924E3DC1BB5641400AA63F6 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,12 +222,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4924E3C61BB5632300AA63F6 /* SecondViewController.swift in Sources */,
+				4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */,
 				4924E3C21BB5632200AA63F6 /* AppDelegate.swift in Sources */,
 				4924E3C41BB5632300AA63F6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4924E3D51BB5641300AA63F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4924E3DE1BB5641600AA63F6 /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4924E3E11BB5641700AA63F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4924E3D81BB5641300AA63F6 /* ContentBlocker */;
+			targetProxy = 4924E3E01BB5641700AA63F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4924E3C71BB5632400AA63F6 /* Main.storyboard */ = {
@@ -252,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BlockIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn;
@@ -263,10 +365,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BlockIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4924E3E41BB5641700AA63F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4924E3E51BB5641700AA63F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -287,6 +414,14 @@
 			buildConfigurations = (
 				4924E3D31BB5632800AA63F6 /* Debug */,
 				4924E3D41BB5632800AA63F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4924E3E31BB5641700AA63F6 /* Build configuration list for PBXNativeTarget "ContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4924E3E41BB5641700AA63F6 /* Debug */,
+				4924E3E51BB5641700AA63F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
