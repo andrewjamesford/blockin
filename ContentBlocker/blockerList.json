@@ -1,6 +1,3 @@
 [
-{"action": {"type": "block"}, "trigger": {"url-filter": ".*", "resource-type": ["script"], "load-type": ["third-party"] } },
-{"action": {"type": "block"}, "trigger": {"url-filter": ".*", "resource-type": ["font"], "load-type": ["third-party"] } },
-{"action": {"type": "block"}, "trigger": {"url-filter": ".*", "resource-type": ["image"], "load-type": ["third-party"] } },
-{"action": {"type": "ignore-previous-rules"}, "trigger": {"url-filter": ".*", "if-domain": ["*decknetwork.net"] } }
+{"action": {"type": "block"}, "trigger": {"url-filter": ".*", "resource-type": ["script"], "load-type": ["third-party"], "if-domain": ["*techcrunch.com"] } }
 ]
