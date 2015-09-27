@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4924E3C21BB5632200AA63F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3C11BB5632200AA63F6 /* AppDelegate.swift */; };
 		4924E3C41BB5632300AA63F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */; };
-		4924E3C61BB5632300AA63F6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3C51BB5632300AA63F6 /* SecondViewController.swift */; };
 		4924E3C91BB5632400AA63F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3C71BB5632400AA63F6 /* Main.storyboard */; };
 		4924E3CB1BB5632600AA63F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3CA1BB5632600AA63F6 /* Assets.xcassets */; };
 		4924E3CE1BB5632700AA63F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3CC1BB5632700AA63F6 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3E71BB5697F00AA63F6 /* BlockList.swift */; settings = {ASSET_TAGS = (); }; };
 		4924E8ED1BB6B01800AA63F6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4924E8EC1BB6B01800AA63F6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4D2BDF8D22386E2FA3B4333D /* Pods_BlockIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5FC150F55913715DE8B249 /* Pods_BlockIn.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -49,7 +50,6 @@
 		4924E3BE1BB5632200AA63F6 /* BlockIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4924E3C11BB5632200AA63F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		4924E3C51BB5632300AA63F6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4924E3C81BB5632400AA63F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4924E3CA1BB5632600AA63F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4924E3CD1BB5632700AA63F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		4924E3DF1BB5641700AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4924E3E71BB5697F00AA63F6 /* BlockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockList.swift; sourceTree = "<group>"; };
 		4924E8EC1BB6B01800AA63F6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = BlockIn/Podfile; sourceTree = "<group>"; };
+		49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewController.swift; sourceTree = "<group>"; };
+		49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewCell.swift; sourceTree = "<group>"; };
 		60E06D937E8BC12A8C7B3B34 /* Pods-BlockIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockIn/Pods-BlockIn.release.xcconfig"; sourceTree = "<group>"; };
 		6F5FC150F55913715DE8B249 /* Pods_BlockIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8BA7BB7056B4132E73F2E4 /* Pods-BlockIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockIn/Pods-BlockIn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,9 +110,9 @@
 		4924E3C01BB5632200AA63F6 /* BlockIn */ = {
 			isa = PBXGroup;
 			children = (
+				49EE72D01BB7EAFF0051202D /* TableCells */,
+				49EE72CD1BB7E06F0051202D /* Controllers */,
 				4924E3C11BB5632200AA63F6 /* AppDelegate.swift */,
-				4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */,
-				4924E3C51BB5632300AA63F6 /* SecondViewController.swift */,
 				4924E3E71BB5697F00AA63F6 /* BlockList.swift */,
 				4924E3C71BB5632400AA63F6 /* Main.storyboard */,
 				4924E3CA1BB5632600AA63F6 /* Assets.xcassets */,
@@ -128,6 +130,23 @@
 				4924E3DF1BB5641700AA63F6 /* Info.plist */,
 			);
 			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
+		49EE72CD1BB7E06F0051202D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */,
+				4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		49EE72D01BB7EAFF0051202D /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */,
+			);
+			name = TableCells;
 			sourceTree = "<group>";
 		};
 		5A1BC8E44D9F13B2AC98A03B /* Frameworks */ = {
@@ -300,8 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4924E3C61BB5632300AA63F6 /* SecondViewController.swift in Sources */,
+				49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */,
 				4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */,
+				49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */,
 				4924E3C21BB5632200AA63F6 /* AppDelegate.swift in Sources */,
 				4924E3C41BB5632300AA63F6 /* SettingsViewController.swift in Sources */,
 			);

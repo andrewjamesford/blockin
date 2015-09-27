@@ -36,7 +36,10 @@ class BlockList {
                 let jsonString = buildRulesJson()
                 try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
             }
-            catch {/* error handling here */}
+            catch {
+                /* error handling here */
+                print("An error occured")
+            }
             
             //reading
 //            do {
@@ -52,15 +55,16 @@ class BlockList {
         var stringOfJson = ""
         
         // For loop for array
-        
-        // use template of 
-        // {"action": {"type": "block"}, "trigger": {"url-filter": ".*", "resource-type": ["script"], "load-type": ["third-party"], "if-domain": ["*techcrunch.com"] } }
-        
-        // append to string
+        for url:String in blockListArray {
+            // use template and append
+            stringOfJson += "{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"*\(url)\"] } }"
+        }
         
         // prefix of [
+        stringOfJson = "[" + stringOfJson
         
         // suffix of ]
+        stringOfJson = stringOfJson + "]"
         
          return stringOfJson
     }
@@ -71,12 +75,14 @@ class BlockList {
         
         currentArry.append(url)
         
+        // Set arrary to NSDefaults
         defaults.setObject(currentArry, forKey: blockListKey)
     }
     
-    func getBlockListArray() -> [String] {
-        let array = defaults.objectForKey(blockListKey) as? [String] ?? [String]()
+    func getBlockListArray() -> Array<String> {
         
-        return array
+        return defaults.objectForKey(blockListKey) as? [String] ?? [String]()
+
     }
+    
 }
