@@ -9,7 +9,7 @@
 import UIKit
 import FXForms
 
-class SettingsViewController: FXFormViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

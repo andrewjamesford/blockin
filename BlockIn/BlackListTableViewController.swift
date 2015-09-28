@@ -46,11 +46,14 @@ class BlackListTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+//        let cell = tableView.dequeueReusableCellWithIdentifier("BlackListCell", forIndexPath: indexPath)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("BlackListCell") as! BlackListTableViewCell
 
-        let site = blockListArray[indexPath.row]
+        let site = blockListArray[indexPath.row] as! String
         
         // Configure the cell...
+        cell.configureCell(site)
 
         return cell
     }

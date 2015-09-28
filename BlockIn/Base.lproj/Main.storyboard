@@ -8,12 +8,12 @@
         <scene sceneID="FXs-dC-IfK">
             <objects>
                 <tableViewController id="2NO-Pa-pGo" customClass="BlackListTableViewController" customModule="BlockIn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WOM-SQ-f9H" customClass="Bl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WOM-SQ-f9H">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cZ8-iv-9uX" style="IBUITableViewCellStyleDefault" id="Mk1-86-Aqf" customClass="BlackListTableViewCell" customModule="BlockIn" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlackListCell" textLabel="cZ8-iv-9uX" style="IBUITableViewCellStyleDefault" id="Mk1-86-Aqf" customClass="BlackListTableViewCell" customModule="BlockIn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mk1-86-Aqf" id="mwB-Qa-ThY">

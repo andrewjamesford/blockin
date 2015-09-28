@@ -22,5 +22,9 @@ class BlackListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCell(title: String) {
+        tblTitle.text = title
+    }
 
 }
