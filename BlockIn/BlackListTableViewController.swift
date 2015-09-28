@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import SafariServices
 
 class BlackListTableViewController: UITableViewController {
     
     var blockListArray = []
+    let fileBlockList = "blockerList.json"
+    let whiteListTemplate: String = ""
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let blockListKey = "BlacklistUrls"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //blockListArray = BlockList.getBlockListArray
-        blockListArray = ["daringfireball.net","imore.com","loopinsight.com"]
+        blockListArray = getBlockListArray()
+        //blockListArray = ["daringfireball.net","imore.com","loopinsight.com"]
         self.tableView.reloadData()
 
         
@@ -104,4 +110,69 @@ class BlackListTableViewController: UITableViewController {
     }
     */
 
+    
+    // MARK: - JSON/NSUserDefault classes
+    func refreshBlockList() {
+        SFContentBlockerManager.reloadContentBlockerWithIdentifier("andrewford.com.BlockIn.ContentBlocker",
+            completionHandler:{(error: NSError?) in
+                print ("SFContentBlockerManager.reloadContentBlockerWithIdentifier")
+                print (error?.localizedDescription)
+        })
+    }
+    
+    
+    func writeFile() {
+        
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+            let path = dir.stringByAppendingPathComponent(fileBlockList);
+            
+            //writing
+            do {
+                let jsonString = buildRulesJson()
+                try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+            }
+            catch {
+                /* error handling here */
+                print("An error occured")
+            }
+        }
+    }
+    
+    func buildRulesJson() -> String {
+        
+        let blockListArray = getBlockListArray()
+        var stringOfJson = ""
+        
+        // For loop for array
+        for url:String in blockListArray {
+            // use template and append
+            stringOfJson += "{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"*\(url)\"] } }"
+        }
+        
+        // prefix of [
+        stringOfJson = "[" + stringOfJson
+        
+        // suffix of ]
+        stringOfJson = stringOfJson + "]"
+        
+        return stringOfJson
+    }
+    
+    func saveBlockListUrl(url:String) {
+        
+        var currentArry = getBlockListArray()
+        
+        currentArry.append(url)
+        
+        // Set arrary to NSDefaults
+        defaults.setObject(currentArry, forKey: blockListKey)
+    }
+    
+    func getBlockListArray() -> Array<String> {
+        
+        return defaults.objectForKey(blockListKey) as? [String] ?? [String]()
+        
+    }
+
+    
 }

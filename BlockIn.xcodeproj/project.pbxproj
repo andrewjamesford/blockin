@@ -15,7 +15,6 @@
 		4924E3DC1BB5641400AA63F6 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4924E3DB1BB5641400AA63F6 /* blockerList.json */; };
 		4924E3DE1BB5641600AA63F6 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */; };
 		4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3E71BB5697F00AA63F6 /* BlockList.swift */; settings = {ASSET_TAGS = (); }; };
 		4924E8ED1BB6B01800AA63F6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4924E8EC1BB6B01800AA63F6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
 		49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -58,7 +57,6 @@
 		4924E3DB1BB5641400AA63F6 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		4924E3DF1BB5641700AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4924E3E71BB5697F00AA63F6 /* BlockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockList.swift; sourceTree = "<group>"; };
 		4924E8EC1BB6B01800AA63F6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = BlockIn/Podfile; sourceTree = "<group>"; };
 		49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewController.swift; sourceTree = "<group>"; };
 		49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				49EE72D01BB7EAFF0051202D /* TableCells */,
 				49EE72CD1BB7E06F0051202D /* Controllers */,
 				4924E3C11BB5632200AA63F6 /* AppDelegate.swift */,
-				4924E3E71BB5697F00AA63F6 /* BlockList.swift */,
 				4924E3C71BB5632400AA63F6 /* Main.storyboard */,
 				4924E3CA1BB5632600AA63F6 /* Assets.xcassets */,
 				4924E3CC1BB5632700AA63F6 /* LaunchScreen.storyboard */,
@@ -320,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */,
-				4924E3E81BB5697F00AA63F6 /* BlockList.swift in Sources */,
 				49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */,
 				4924E3C21BB5632200AA63F6 /* AppDelegate.swift in Sources */,
 				4924E3C41BB5632300AA63F6 /* SettingsViewController.swift in Sources */,
