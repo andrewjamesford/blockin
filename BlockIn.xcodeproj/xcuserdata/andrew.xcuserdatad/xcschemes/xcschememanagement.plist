@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BlackListAction.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>BlockIn.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -14,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>ShareAddBlackList.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>4924E3D81BB5641300AA63F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>499938381BBA896600997E93</key>
 		<dict>
 			<key>primary</key>
 			<true/>

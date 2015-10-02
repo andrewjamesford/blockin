@@ -16,6 +16,9 @@
 		4924E3DE1BB5641600AA63F6 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */; };
 		4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4924E8ED1BB6B01800AA63F6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4924E8EC1BB6B01800AA63F6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		4999383C1BBA896700997E93 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999383B1BBA896700997E93 /* ActionViewController.swift */; };
+		4999383F1BBA896800997E93 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4999383D1BBA896800997E93 /* MainInterface.storyboard */; };
+		499938431BBA896800997E93 /* BlackListAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 499938391BBA896600997E93 /* BlackListAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4D2BDF8D22386E2FA3B4333D /* Pods_BlockIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5FC150F55913715DE8B249 /* Pods_BlockIn.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -29,6 +32,13 @@
 			remoteGlobalIDString = 4924E3D81BB5641300AA63F6;
 			remoteInfo = ContentBlocker;
 		};
+		499938411BBA896800997E93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4924E3B61BB5632100AA63F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 499938381BBA896600997E93;
+			remoteInfo = BlackListAction;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				499938431BBA896800997E93 /* BlackListAction.appex in Embed App Extensions */,
 				4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -58,6 +69,10 @@
 		4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		4924E3DF1BB5641700AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4924E8EC1BB6B01800AA63F6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = BlockIn/Podfile; sourceTree = "<group>"; };
+		499938391BBA896600997E93 /* BlackListAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BlackListAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4999383B1BBA896700997E93 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		4999383E1BBA896800997E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		499938401BBA896800997E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewController.swift; sourceTree = "<group>"; };
 		49EE72D11BB7EB650051202D /* BlackListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListTableViewCell.swift; sourceTree = "<group>"; };
 		60E06D937E8BC12A8C7B3B34 /* Pods-BlockIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockIn/Pods-BlockIn.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +96,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		499938361BBA896600997E93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +112,7 @@
 				4924E8EC1BB6B01800AA63F6 /* Podfile */,
 				4924E3C01BB5632200AA63F6 /* BlockIn */,
 				4924E3DA1BB5641300AA63F6 /* ContentBlocker */,
+				4999383A1BBA896700997E93 /* BlackListAction */,
 				4924E3BF1BB5632200AA63F6 /* Products */,
 				6C8DE7D8DDC39FFCA9F797A5 /* Pods */,
 				5A1BC8E44D9F13B2AC98A03B /* Frameworks */,
@@ -101,6 +124,7 @@
 			children = (
 				4924E3BE1BB5632200AA63F6 /* BlockIn.app */,
 				4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */,
+				499938391BBA896600997E93 /* BlackListAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +151,16 @@
 				4924E3DF1BB5641700AA63F6 /* Info.plist */,
 			);
 			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
+		4999383A1BBA896700997E93 /* BlackListAction */ = {
+			isa = PBXGroup;
+			children = (
+				4999383B1BBA896700997E93 /* ActionViewController.swift */,
+				4999383D1BBA896800997E93 /* MainInterface.storyboard */,
+				499938401BBA896800997E93 /* Info.plist */,
+			);
+			path = BlackListAction;
 			sourceTree = "<group>";
 		};
 		49EE72CD1BB7E06F0051202D /* Controllers */ = {
@@ -182,6 +216,7 @@
 			);
 			dependencies = (
 				4924E3E11BB5641700AA63F6 /* PBXTargetDependency */,
+				499938421BBA896800997E93 /* PBXTargetDependency */,
 			);
 			name = BlockIn;
 			productName = BlockIn;
@@ -205,6 +240,23 @@
 			productReference = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		499938381BBA896600997E93 /* BlackListAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 499938461BBA896800997E93 /* Build configuration list for PBXNativeTarget "BlackListAction" */;
+			buildPhases = (
+				499938351BBA896600997E93 /* Sources */,
+				499938361BBA896600997E93 /* Frameworks */,
+				499938371BBA896600997E93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackListAction;
+			productName = BlackListAction;
+			productReference = 499938391BBA896600997E93 /* BlackListAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,6 +270,9 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					4924E3D81BB5641300AA63F6 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					499938381BBA896600997E93 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -237,6 +292,7 @@
 			targets = (
 				4924E3BD1BB5632100AA63F6 /* BlockIn */,
 				4924E3D81BB5641300AA63F6 /* ContentBlocker */,
+				499938381BBA896600997E93 /* BlackListAction */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +314,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4924E3DC1BB5641400AA63F6 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		499938371BBA896600997E93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4999383F1BBA896800997E93 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +395,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		499938351BBA896600997E93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4999383C1BBA896700997E93 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -338,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = 4924E3D81BB5641300AA63F6 /* ContentBlocker */;
 			targetProxy = 4924E3E01BB5641700AA63F6 /* PBXContainerItemProxy */;
+		};
+		499938421BBA896800997E93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 499938381BBA896600997E93 /* BlackListAction */;
+			targetProxy = 499938411BBA896800997E93 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -356,6 +433,14 @@
 				4924E3CD1BB5632700AA63F6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4999383D1BBA896800997E93 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4999383E1BBA896800997E93 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -494,6 +579,28 @@
 			};
 			name = Release;
 		};
+		499938441BBA896800997E93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BlackListAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.BlackListAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		499938451BBA896800997E93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BlackListAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.BlackListAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +630,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		499938461BBA896800997E93 /* Build configuration list for PBXNativeTarget "BlackListAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				499938441BBA896800997E93 /* Debug */,
+				499938451BBA896800997E93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
