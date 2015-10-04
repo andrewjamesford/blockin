@@ -57,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4920978C1BC1295500A71586 /* BlackListAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BlackListAction.entitlements; sourceTree = "<group>"; };
+		4920978D1BC129A600A71586 /* BlockIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BlockIn.entitlements; sourceTree = "<group>"; };
 		4924E3BE1BB5632200AA63F6 /* BlockIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4924E3C11BB5632200AA63F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		4924E3C01BB5632200AA63F6 /* BlockIn */ = {
 			isa = PBXGroup;
 			children = (
+				4920978D1BC129A600A71586 /* BlockIn.entitlements */,
 				49EE72D01BB7EAFF0051202D /* TableCells */,
 				49EE72CD1BB7E06F0051202D /* Controllers */,
 				4924E3C11BB5632200AA63F6 /* AppDelegate.swift */,
@@ -156,6 +159,7 @@
 		4999383A1BBA896700997E93 /* BlackListAction */ = {
 			isa = PBXGroup;
 			children = (
+				4920978C1BC1295500A71586 /* BlackListAction.entitlements */,
 				4999383B1BBA896700997E93 /* ActionViewController.swift */,
 				4999383D1BBA896800997E93 /* MainInterface.storyboard */,
 				499938401BBA896800997E93 /* Info.plist */,
@@ -268,12 +272,24 @@
 				TargetAttributes = {
 					4924E3BD1BB5632100AA63F6 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 488BRDJ322;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4924E3D81BB5641300AA63F6 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 					499938381BBA896600997E93 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 488BRDJ322;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -534,6 +550,7 @@
 			baseConfigurationReference = AB8BA7BB7056B4132E73F2E4 /* Pods-BlockIn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlockIn/BlockIn.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BlockIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -547,6 +564,7 @@
 			baseConfigurationReference = 60E06D937E8BC12A8C7B3B34 /* Pods-BlockIn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlockIn/BlockIn.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BlockIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -582,10 +600,14 @@
 		499938441BBA896800997E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlackListAction/BlackListAction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BlackListAction/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.BlackListAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -593,10 +615,14 @@
 		499938451BBA896800997E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlackListAction/BlackListAction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BlackListAction/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = andrewford.com.BlockIn.BlackListAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -638,6 +664,7 @@
 				499938451BBA896800997E93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

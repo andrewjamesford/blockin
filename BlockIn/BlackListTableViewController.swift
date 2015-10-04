@@ -14,7 +14,8 @@ class BlackListTableViewController: UITableViewController {
     var blockListArray = []
     let fileBlockList = "blockerList.json"
     let whiteListTemplate: String = ""
-    let defaults = NSUserDefaults.standardUserDefaults()
+    // let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
     let blockListKey = "BlacklistUrls"
 
     
@@ -165,12 +166,12 @@ class BlackListTableViewController: UITableViewController {
         currentArry.append(url)
         
         // Set arrary to NSDefaults
-        defaults.setObject(currentArry, forKey: blockListKey)
+        defaults!.setObject(currentArry, forKey: blockListKey)
     }
     
     func getBlockListArray() -> Array<String> {
         
-        return defaults.objectForKey(blockListKey) as? [String] ?? [String]()
+        return defaults!.objectForKey(blockListKey) as? [String] ?? [String]()
         
     }
 

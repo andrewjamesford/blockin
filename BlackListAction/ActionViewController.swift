@@ -11,6 +11,8 @@ import MobileCoreServices
 
 class ActionViewController: UIViewController {
 
+    let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
+    let blockListKey = "BlacklistUrls"
     
     @IBOutlet weak var txtUrl: UITextField!
     
@@ -35,7 +37,11 @@ class ActionViewController: UIViewController {
                                 let unwrappedUrl:String = "\(myUrl)"
                                 print(unwrappedUrl)
                                 self.txtUrl.text = unwrappedUrl
+                                // TODO - Regex the URL to get only the domain
+                                let cleanedUrl = unwrappedUrl
+                                
                                 // TODO - Save the url
+                                self.saveBlockListUrl(cleanedUrl)
                             }
                         }
                     })
@@ -61,6 +67,22 @@ class ActionViewController: UIViewController {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
         self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+    }
+    
+    func saveBlockListUrl(url:String) {
+        
+        var currentArry = getBlockListArray()
+        
+        currentArry.append(url)
+        
+        // Set arrary to NSDefaults
+        defaults!.setObject(currentArry, forKey: blockListKey)
+    }
+    
+    func getBlockListArray() -> Array<String> {
+        
+        return defaults!.objectForKey(blockListKey) as? [String] ?? [String]()
+        
     }
 
 }
