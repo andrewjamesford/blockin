@@ -14,6 +14,7 @@ class ActionViewController: UIViewController {
     let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
     let blockListKey = "BlacklistUrls"
     
+    @IBOutlet weak var lblUrl: UILabel!
     @IBOutlet weak var txtUrl: UITextField!
     
     override func viewDidLoad() {
@@ -36,12 +37,17 @@ class ActionViewController: UIViewController {
                             if let myUrl = url {
                                 let unwrappedUrl:String = "\(myUrl)"
                                 print(unwrappedUrl)
-                                self.txtUrl.text = unwrappedUrl
-                                // TODO - Regex the URL to get only the domain
-                                let cleanedUrl = unwrappedUrl
+
+                                // Get the URL to get only the domain
+                                let myNSUrl : NSURL? = NSURL(string: unwrappedUrl)
+                                let host = myNSUrl?.host
+                                print(host)
                                 
-                                // TODO - Save the url
-                                self.saveBlockListUrl(cleanedUrl)
+                                self.txtUrl.text = host
+                                self.lblUrl.text = host
+                                
+                                // Save the url
+                                self.saveBlockListUrl(host!)
                             }
                         }
                     })
