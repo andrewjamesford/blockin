@@ -17,6 +17,8 @@ class BlackListTableViewController: UITableViewController {
     // let defaults = NSUserDefaults.standardUserDefaults()
     let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
     let blockListKey = "BlacklistUrls"
+    let lastListUpdated = "LastListUpdated"
+    let lastJsonUpdated = "LastJsonUpdated"
 
     
     override func viewDidLoad() {
@@ -167,6 +169,10 @@ class BlackListTableViewController: UITableViewController {
         
         // Set arrary to NSDefaults
         defaults!.setObject(currentArry, forKey: blockListKey)
+        
+        // Set last update
+        let currentDate = NSDate()
+        defaults!.setObject(currentDate, forKey: lastListUpdated)
     }
     
     func getBlockListArray() -> Array<String> {
