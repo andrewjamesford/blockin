@@ -2,60 +2,68 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ObA-dk-sSI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--ExtensionView-->
+        <!--Image-->
         <scene sceneID="7MM-of-jgj">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" title="ExtensionView" modalPresentationStyle="overCurrentContext" id="ObA-dk-sSI" customClass="ActionViewController" customModule="BlackListAction" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Image" id="ObA-dk-sSI" customClass="ActionViewController" customModule="BlackListAction" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" contentMode="center" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Block URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crj-zW-9TP">
-                                <rect key="frame" x="117" y="199" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfY-iA-voq">
+                            <navigationBar contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="NOA-Dm-cuz">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="3HJ-uW-3hn">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="WYi-yp-eM6">
+                                            <connections>
+                                                <action selector="done:" destination="ObA-dk-sSI" id="bSh-eT-Jpu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfY-iA-voq">
                                 <rect key="frame" x="20" y="253" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1f-YV-IVI">
-                                <rect key="frame" x="137" y="305" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BN-d5-Lod">
+                                <rect key="frame" x="5" y="490" width="315" height="38"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="done:" destination="ObA-dk-sSI" eventType="touchUpInside" id="Bla-Jy-TA3"/>
-                                </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.backgroundColor">
+                                        <color key="value" red="0.39116809299999999" green="0.5289172633" blue="0.85230486429999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check-badge" translatesAutoresizingMaskIntoConstraints="NO" id="ulT-gR-sEY">
+                                <rect key="frame" x="132" y="323" width="60" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="close-badge" translatesAutoresizingMaskIntoConstraints="NO" id="XuL-xq-gpo">
+                                <rect key="frame" x="132" y="408" width="60" height="60"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OfY-iA-voq" firstAttribute="top" secondItem="Crj-zW-9TP" secondAttribute="bottom" constant="33" id="ENa-2O-6Km"/>
-                            <constraint firstItem="Crj-zW-9TP" firstAttribute="top" secondItem="zMn-AG-sqS" secondAttribute="top" constant="199" id="IBP-QD-nM6"/>
-                            <constraint firstItem="Crj-zW-9TP" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="97" id="N5z-5f-X9V"/>
-                            <constraint firstItem="Crj-zW-9TP" firstAttribute="centerX" secondItem="OfY-iA-voq" secondAttribute="centerX" id="WvI-TL-Qh4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Crj-zW-9TP" secondAttribute="trailing" constant="96" id="edM-0f-6Bu"/>
+                            <constraint firstAttribute="trailing" secondItem="NOA-Dm-cuz" secondAttribute="trailing" id="A05-Pj-hrr"/>
+                            <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="HxO-8t-aoh"/>
+                            <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="we0-1t-bgp"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <value key="contentSizeForViewInPopover" type="size" width="300" height="300"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="btnDismiss" destination="S1f-YV-IVI" id="mpp-g9-QJh"/>
+                        <outlet property="btnComplete" destination="0BN-d5-Lod" id="ULJ-q7-dAa"/>
+                        <outlet property="btnDone" destination="WYi-yp-eM6" id="IBu-g0-7C2"/>
+                        <outlet property="imgCheck" destination="ulT-gR-sEY" id="Gwc-tU-6iz"/>
+                        <outlet property="imgCross" destination="XuL-xq-gpo" id="O7P-dp-1J4"/>
                         <outlet property="lblUrl" destination="OfY-iA-voq" id="VaB-oF-1tw"/>
                     </connections>
                 </viewController>
@@ -64,4 +72,8 @@
             <point key="canvasLocation" x="252" y="-124"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check-badge" width="30" height="30"/>
+        <image name="close-badge" width="30" height="30"/>
+    </resources>
 </document>

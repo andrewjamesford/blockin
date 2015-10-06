@@ -16,12 +16,16 @@ class ActionViewController: UIViewController {
     let lastListUpdated = "LastListUpdated"
     
     @IBOutlet weak var lblUrl: UILabel!
-    
-    @IBOutlet weak var btnDismiss: UIButton!
+    @IBOutlet weak var btnDone: UIBarButtonItem!
+    @IBOutlet weak var btnComplete: UIButton!
+    @IBOutlet weak var imgCheck: UIImageView!
+    @IBOutlet weak var imgCross: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imgCheck.hidden = true
+        imgCross.hidden = true
+        btnComplete.backgroundColor = UIColor.cyanColor()
         // Get the item[s] we're handling from the extension context.
         
         // For example, look for an image and place it into an image view.
@@ -47,8 +51,18 @@ class ActionViewController: UIViewController {
                                 
                                 self.lblUrl.text = host
                                 
-                                // Save the url
-                                self.saveBlockListUrl(host!)
+                                // Check item doesn't already exist
+                                if (!self.checkUrlInBlockList(host!)) {
+                                    
+                                    // Save the url
+                                    self.saveBlockListUrl(host!)
+
+                                    self.imgCheck.hidden = false
+                                }
+                                else {
+                                    self.imgCross.hidden = false
+                                }
+                                
                             }
                         }
                     })
@@ -89,6 +103,17 @@ class ActionViewController: UIViewController {
         // Set last update
         let currentDate = NSDate()
         defaults!.setObject(currentDate, forKey: lastListUpdated)
+    }
+    
+    func checkUrlInBlockList(url:String) -> Bool {
+        let currentArray = getBlockListArray()
+        
+        if currentArray.contains(url) {
+            print("yes")
+            return true
+        }
+        
+        return false
     }
     
     func getBlockListArray() -> Array<String> {

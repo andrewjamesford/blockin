@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlackListCell" textLabel="cZ8-iv-9uX" style="IBUITableViewCellStyleDefault" id="Mk1-86-Aqf" customClass="BlackListTableViewCell" customModule="BlockIn" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BlackListCell" textLabel="cZ8-iv-9uX" style="IBUITableViewCellStyleDefault" id="Mk1-86-Aqf" customClass="BlackListTableViewCell" customModule="BlockIn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mk1-86-Aqf" id="mwB-Qa-ThY">
@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="1570" y="-381"/>
         </scene>
-        <!--Second-->
+        <!--About-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="BlockIn" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="About" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,11 +104,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Black List-->
         <scene sceneID="N52-CD-l8G">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PIi-Mw-rRZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZCO-BU-stF"/>
+                    <tabBarItem key="tabBarItem" title="Black List" id="ZCO-BU-stF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSm-6n-Bve">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

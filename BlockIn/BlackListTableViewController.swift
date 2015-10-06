@@ -25,7 +25,6 @@ class BlackListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         blockListArray = getBlockListArray()
-        //blockListArray = ["daringfireball.net","imore.com","loopinsight.com"]
         self.tableView.reloadData()
 
         
@@ -133,6 +132,10 @@ class BlackListTableViewController: UITableViewController {
             do {
                 let jsonString = buildRulesJson()
                 try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+                
+                // Set last update
+                let currentDate = NSDate()
+                defaults!.setObject(currentDate, forKey: lastJsonUpdated)
             }
             catch {
                 /* error handling here */
