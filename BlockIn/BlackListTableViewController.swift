@@ -14,7 +14,6 @@ class BlackListTableViewController: UITableViewController {
     var blockListArray = []
     let fileBlockList = "blockerList.json"
     let whiteListTemplate: String = ""
-    // let defaults = NSUserDefaults.standardUserDefaults()
     let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
     let blockListKey = "BlacklistUrls"
     let lastListUpdated = "LastListUpdated"
@@ -26,13 +25,28 @@ class BlackListTableViewController: UITableViewController {
         
         blockListArray = getBlockListArray()
         self.tableView.reloadData()
-
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        // Hides empty table cells
+        self.tableView.tableFooterView = UIView.init()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        writeFile()
+        
+        refreshBlockList()
+        
+        refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+
+    }
+    
+    func refreshData() {
+        self.blockListArray = getBlockListArray()
+        
+        writeFile()
+        
+        refreshBlockList()
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,12 +54,6 @@ class BlackListTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -54,7 +62,6 @@ class BlackListTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("BlackListCell", forIndexPath: indexPath)
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BlackListCell") as! BlackListTableViewCell
 
@@ -67,50 +74,6 @@ class BlackListTableViewController: UITableViewController {
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
     // MARK: - JSON/NSUserDefault classes
@@ -126,20 +89,42 @@ class BlackListTableViewController: UITableViewController {
     func writeFile() {
         
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = dir.stringByAppendingPathComponent(fileBlockList);
+            let path = dir.stringByAppendingPathComponent(fileBlockList)
             
-            //writing
-            do {
-                let jsonString = buildRulesJson()
-                try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
-                
-                // Set last update
-                let currentDate = NSDate()
-                defaults!.setObject(currentDate, forKey: lastJsonUpdated)
+            guard let lastListUpDate = defaults!.objectForKey(lastListUpdated) as! NSDate? else { return }
+            
+            var lastWriteDate = NSDate()
+            
+            if let lastJsonUpdatedDate = defaults!.objectForKey(lastJsonUpdated) as! NSDate? {
+                lastWriteDate = lastJsonUpdatedDate
             }
-            catch {
-                /* error handling here */
-                print("An error occured")
+            else {
+                let dataString = "April 7, 2002" as String
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy"
+                dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                
+                lastWriteDate = dateFormatter.dateFromString(dataString) as NSDate!
+            }
+
+            if (lastListUpDate.compare(lastWriteDate) == NSComparisonResult.OrderedDescending) {
+                
+                // writing
+                do {
+                    
+                    
+                    let jsonString = buildRulesJson()
+                    try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+                    
+                    // Set last update
+                    let currentDate = NSDate()
+                    defaults!.setObject(currentDate, forKey: lastJsonUpdated)
+                    
+                }
+                catch {
+                    /* error handling here */
+                    print("An error occured")
+                }
             }
         }
     }
@@ -152,7 +137,7 @@ class BlackListTableViewController: UITableViewController {
         // For loop for array
         for url:String in blockListArray {
             // use template and append
-            stringOfJson += "{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"*\(url)\"] } }"
+            stringOfJson += "{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"\(url)\"] } }"
         }
         
         // prefix of [

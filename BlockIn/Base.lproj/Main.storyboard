@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Black List Table View Controller-->
+        <!--Black List-->
         <scene sceneID="FXs-dC-IfK">
             <objects>
                 <tableViewController id="2NO-Pa-pGo" customClass="BlackListTableViewController" customModule="BlockIn" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,10 @@
                             <outlet property="delegate" destination="2NO-Pa-pGo" id="JwN-yg-LJ1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KOj-Jg-lbf"/>
+                    <navigationItem key="navigationItem" title="Black List" id="KOj-Jg-lbf"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Z9f-Z9-pdJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCx-5d-U64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
