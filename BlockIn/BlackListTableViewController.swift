@@ -12,6 +12,7 @@ import SafariServices
 class BlackListTableViewController: UITableViewController {
     
     var blockListArray = []
+    let defaultList = "defaultList.json"
     let fileBlockList = "blockerList.json"
     let whiteListTemplate: String = ""
     let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
@@ -29,9 +30,11 @@ class BlackListTableViewController: UITableViewController {
         // Hides empty table cells
         self.tableView.tableFooterView = UIView.init()
 
-        writeFile()
+        checkBlockFile()
+        //copyFile()
+        //writeFile()
         
-        refreshBlockList()
+        //refreshBlockList()
         
         refreshControl?.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
 
@@ -42,7 +45,7 @@ class BlackListTableViewController: UITableViewController {
         
         writeFile()
         
-        refreshBlockList()
+        //refreshBlockList()
         
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
@@ -73,11 +76,43 @@ class BlackListTableViewController: UITableViewController {
         return cell
     }
 
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    {
+        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+
+            let currIndex = indexPath.row
+            let currItem = indexPath.item
+            
+            var currentArry = self.getBlockListArray()
+            
+            currentArry.removeAtIndex(currIndex)
+            
+            self.blockListArray = currentArry
+            
+            // Set arrary to NSDefaults
+            self.defaults!.setObject(currentArry, forKey: self.blockListKey)
+            
+            tableView.reloadData()
+        })
+        
+        delete.backgroundColor = UIColor.redColor()
+        
+        return [delete]
+    }
 
 
     
     // MARK: - JSON/NSUserDefault classes
     func refreshBlockList() {
+
         SFContentBlockerManager.reloadContentBlockerWithIdentifier("andrewford.com.BlockIn.ContentBlocker",
             completionHandler:{(error: NSError?) in
                 print ("SFContentBlockerManager.reloadContentBlockerWithIdentifier")
@@ -89,6 +124,7 @@ class BlackListTableViewController: UITableViewController {
     func writeFile() {
         
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+
             let path = dir.stringByAppendingPathComponent(fileBlockList)
             
             guard let lastListUpDate = defaults!.objectForKey(lastListUpdated) as! NSDate? else { return }
@@ -112,18 +148,28 @@ class BlackListTableViewController: UITableViewController {
                 // writing
                 do {
                     
-                    
                     let jsonString = buildRulesJson()
-                    try jsonString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+
+                    print(path)
+                    let jsonData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
+
+                    //let data = try NSJSONSerialization.dataWithJSONObject(jsonData!, options: NSJSONWritingOptions.PrettyPrinted)
+                    
+                    try jsonData!.writeToFile(path, atomically: false)
+                    
+                    SFContentBlockerManager.reloadContentBlockerWithIdentifier("\(NSBundle.mainBundle().bundleIdentifier).ContentBlocker",
+                        completionHandler: { (error) in
+                            print ("SFContentBlockerManager.reloadContentBlockerWithIdentifier")
+                            print (error)
+                            print (error?.localizedDescription)
+                    })
                     
                     // Set last update
                     let currentDate = NSDate()
                     defaults!.setObject(currentDate, forKey: lastJsonUpdated)
-                    
                 }
-                catch {
-                    /* error handling here */
-                    print("An error occured")
+                catch let error {
+                    assertionFailure("Could not modify the blockerList: \(error)")
                 }
             }
         }
@@ -134,17 +180,8 @@ class BlackListTableViewController: UITableViewController {
         let blockListArray = getBlockListArray()
         var stringOfJson = ""
         
-        // For loop for array
-        for url:String in blockListArray {
-            // use template and append
-            stringOfJson += "{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"\(url)\"] } }"
-        }
-        
         // prefix of [
-        stringOfJson = "[" + stringOfJson
-        
-        // suffix of ]
-        stringOfJson = stringOfJson + "]"
+        stringOfJson = "[{\"action\": {\"type\": \"block\"}, \"trigger\": {\"url-filter\": \".*\", \"resource-type\": [\"script\"], \"load-type\": [\"third-party\"], \"if-domain\": [\"" + blockListArray.joinWithSeparator(", ") + "\"]}}]"
         
         return stringOfJson
     }
@@ -168,6 +205,14 @@ class BlackListTableViewController: UITableViewController {
         return defaults!.objectForKey(blockListKey) as? [String] ?? [String]()
         
     }
-
+    
+    func checkBlockFile() {
+        let documentsPath = ((NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as NSString).stringByAppendingPathComponent("blockerList") as NSString).stringByAppendingPathExtension("json")!
+        let fileManager = NSFileManager.defaultManager()
+        if !fileManager.fileExistsAtPath(documentsPath) {
+            // Create file
+            writeFile()
+        }
+    }
     
 }

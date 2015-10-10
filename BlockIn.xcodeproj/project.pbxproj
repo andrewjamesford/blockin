@@ -16,6 +16,7 @@
 		4924E3DE1BB5641600AA63F6 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */; };
 		4924E3E21BB5641700AA63F6 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4924E3D91BB5641300AA63F6 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4924E8ED1BB6B01800AA63F6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4924E8EC1BB6B01800AA63F6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		4948F5931BC911250048AB46 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948F5921BC911250048AB46 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4999383C1BBA896700997E93 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999383B1BBA896700997E93 /* ActionViewController.swift */; };
 		4999383F1BBA896800997E93 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4999383D1BBA896800997E93 /* MainInterface.storyboard */; };
 		499938431BBA896800997E93 /* BlackListAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 499938391BBA896600997E93 /* BlackListAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -71,6 +72,8 @@
 		4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		4924E3DF1BB5641700AA63F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4924E8EC1BB6B01800AA63F6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = BlockIn/Podfile; sourceTree = "<group>"; };
+		4948F5921BC911250048AB46 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		499748891BC6612D00F5DC59 /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 		499938391BBA896600997E93 /* BlackListAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BlackListAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4999383B1BBA896700997E93 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		4999383E1BBA896800997E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		4924E3DA1BB5641300AA63F6 /* ContentBlocker */ = {
 			isa = PBXGroup;
 			children = (
+				499748891BC6612D00F5DC59 /* ContentBlocker.entitlements */,
 				4924E3DB1BB5641400AA63F6 /* blockerList.json */,
 				4924E3DD1BB5641600AA63F6 /* ActionRequestHandler.swift */,
 				4924E3DF1BB5641700AA63F6 /* Info.plist */,
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				49EE72CE1BB7E7290051202D /* BlackListTableViewController.swift */,
+				4948F5921BC911250048AB46 /* TableViewController.swift */,
 				4924E3C31BB5632300AA63F6 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
@@ -282,6 +287,11 @@
 					4924E3D81BB5641300AA63F6 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 488BRDJ322;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					499938381BBA896600997E93 = {
 						CreatedOnToolsVersion = 7.0;
@@ -400,6 +410,7 @@
 				49EE72D21BB7EB650051202D /* BlackListTableViewCell.swift in Sources */,
 				49EE72CF1BB7E7290051202D /* BlackListTableViewController.swift in Sources */,
 				4924E3C21BB5632200AA63F6 /* AppDelegate.swift in Sources */,
+				4948F5931BC911250048AB46 /* TableViewController.swift in Sources */,
 				4924E3C41BB5632300AA63F6 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
@@ -593,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
