@@ -111,7 +111,7 @@
         <scene sceneID="N52-CD-l8G">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PIi-Mw-rRZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Black List" id="ZCO-BU-stF"/>
+                    <tabBarItem key="tabBarItem" title="Black List" image="first" id="ZCO-BU-stF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSm-6n-Bve">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -128,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

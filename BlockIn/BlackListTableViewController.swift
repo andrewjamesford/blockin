@@ -12,8 +12,8 @@ import SafariServices
 class BlackListTableViewController: UITableViewController {
     
     var blockListArray = []
-    let defaultList = "defaultList.json"
-    let fileBlockList = "blockerList.json"
+    let fileBlockList = "blockerList"
+    let fileExtension = "json"
     let whiteListTemplate: String = ""
     let defaults = NSUserDefaults.init(suiteName: "group.andrewford.com.BlockIn")
     let blockListKey = "BlacklistUrls"
@@ -31,6 +31,7 @@ class BlackListTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView.init()
 
         checkBlockFile()
+        
         //copyFile()
         //writeFile()
         
@@ -123,9 +124,9 @@ class BlackListTableViewController: UITableViewController {
     
     func writeFile() {
         
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
 
-            let path = dir.stringByAppendingPathComponent(fileBlockList)
+            let path = ((NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as NSString).stringByAppendingPathComponent("blockerList") as NSString).stringByAppendingPathExtension("json")!
             
             guard let lastListUpDate = defaults!.objectForKey(lastListUpdated) as! NSDate? else { return }
             
@@ -153,8 +154,6 @@ class BlackListTableViewController: UITableViewController {
                     print(path)
                     let jsonData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
 
-                    //let data = try NSJSONSerialization.dataWithJSONObject(jsonData!, options: NSJSONWritingOptions.PrettyPrinted)
-                    
                     try jsonData!.writeToFile(path, atomically: false)
                     
                     SFContentBlockerManager.reloadContentBlockerWithIdentifier("\(NSBundle.mainBundle().bundleIdentifier).ContentBlocker",
@@ -171,6 +170,15 @@ class BlackListTableViewController: UITableViewController {
                 catch let error {
                     assertionFailure("Could not modify the blockerList: \(error)")
                 }
+            }
+            else {
+                print("List up to date")
+                SFContentBlockerManager.reloadContentBlockerWithIdentifier("\(NSBundle.mainBundle().bundleIdentifier).ContentBlocker",
+                    completionHandler: { (error) in
+                        print ("SFContentBlockerManager.reloadContentBlockerWithIdentifier")
+                        print (error)
+                        print (error?.localizedDescription)
+                })
             }
         }
     }
